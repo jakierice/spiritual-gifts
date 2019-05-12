@@ -5,8 +5,14 @@ import React from 'react';
 
 import logIn from '../../actions/logIn';
 import FirebaseAuth from '../misc/FirebaseAuth';
-import { HeaderFooterWrapper, Header, Footer } from '../../ui-elements/layout';
-import { InternalLink, HeaderLink } from '../../ui-elements/links';
+import {
+  Button,
+  Footer,
+  Header,
+  HeaderFooterWrapper,
+  HeaderLink,
+  InternalLink,
+} from '../../ui-elements';
 
 const Layout = ({ children }) => (
   <HeaderFooterWrapper>
@@ -15,12 +21,12 @@ const Layout = ({ children }) => (
       <InternalLink to="/position">Positions</InternalLink>
       <InternalLink to="/candidate">Candidates</InternalLink>
 
-      {/* <div style={{ float: 'right' }}>
-        <HeaderLink to="/search">
+      <div style={{ float: 'right' }}>
+        {/* <HeaderLink to="/search">
           <span role="img" aria-label="search">
             🔎
           </span>
-        </HeaderLink>{' '}
+        </HeaderLink>{' '} */}
         <FirebaseAuth>
           {({ isLoading, error, auth }) => {
             if (isLoading) {
@@ -31,18 +37,18 @@ const Layout = ({ children }) => (
             }
             if (auth) {
               return (
-                <HeaderLink to={`/account`}>
+                <HeaderLink to={'/account'}>
                   <span role="img" aria-label="account">
                     👤
                   </span>
                 </HeaderLink>
               );
             } else {
-              return <button onClick={logIn}>log in</button>;
+              return <Button onClick={logIn}>Log in</Button>;
             }
           }}
         </FirebaseAuth>
-      </div> */}
+      </div>
     </Header>
 
     {children}

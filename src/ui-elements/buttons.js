@@ -16,5 +16,6 @@ export const baseButtonStyles = css`
 `;
 
 export const Button = styled.button`
-  ${baseButtonStyles}
+  ${baseButtonStyles};
+  cursor: pointer;
 `;

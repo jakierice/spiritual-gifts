@@ -1,4 +1,5 @@
-import { injectGlobal } from 'styled-components'
+import { injectGlobal } from 'styled-components';
+import colors from './colors';
 
 // https://www.styled-components.com/docs/api#injectglobal
 injectGlobal`
@@ -15,6 +16,7 @@ injectGlobal`
     margin: 0;
     padding: 0;
     line-height: 1.4;
+    color: ${colors.black};
   }
 
   html,
@@ -33,4 +35,4 @@ injectGlobal`
     background: #eee;
     margin: 1rem 0;
   }
-`
+`;

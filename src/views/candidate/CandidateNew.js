@@ -21,7 +21,7 @@ const PostNew = ({ history }) => (
         if (!auth) {
           return (
             <div>
-              <p>You must be logged in to add posts</p>
+              <p>You must be logged in to add a new candidate.</p>
               <Button onClick={logIn}>log in</Button>
             </div>
           );

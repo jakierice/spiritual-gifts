@@ -7,6 +7,7 @@ import { Switch, Route } from 'react-router-dom';
 import { PositionList, PositionNew } from './position';
 import { CandidateList, CandidateNew } from './candidate';
 import { MatchList } from './matches';
+import { Account } from './account';
 import Error from './misc/Error';
 
 const Routes = () => (
@@ -16,6 +17,7 @@ const Routes = () => (
     <Route exact path="/position/new" component={PositionNew} />
     <Route exact path="/candidate" component={CandidateList} />
     <Route exact path="/candidate/new" component={CandidateNew} />
+    <Route exact path="/account" component={Account} />
     <Route component={Error} />
   </Switch>
 );

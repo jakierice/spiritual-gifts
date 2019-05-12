@@ -1,14 +1,31 @@
 import React from 'react';
+import styled from 'styled-components';
 import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
 import { ButtonLink } from '../../ui-elements/links';
 import { Page } from '../../ui-elements/layout';
+import { createPosition } from '../../actions/';
+import PositionForm from './PositionForm';
+
+const TwoColumnPageLayout = styled.div`
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: auto;
+`;
+
+const TwoColumn = styled.div`
+  grid-column: span 2;
+`;
+
+const SixColumn = styled.div`
+  grid-column: span 6;
+`;
 
 function PositionList() {
   return (
     <Page>
-      <ButtonLink to="/position/new">New position</ButtonLink>
+      {/* <ButtonLink to="/position/new">New position</ButtonLink> */}
       <hr />
       <FirestoreCollection path={'positions'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
@@ -25,20 +42,25 @@ function PositionList() {
           }
 
           return (
-            <div>
-              {data.map(position => {
-                return (
-                  <React.Fragment key={position.key}>
-                    <h2>{position.title}</h2>
-                    <ul>
-                      {position.gifts.map(gift => (
-                        <li key={gift}>{gift}</li>
-                      ))}
-                    </ul>
-                  </React.Fragment>
-                );
-              })}
-            </div>
+            <TwoColumnPageLayout>
+              <SixColumn>
+                {data.map(position => {
+                  return (
+                    <React.Fragment>
+                      <h2>{position.title}</h2>
+                      <ul>
+                        {position.gifts.map((gift, index) => (
+                          <li key={gift + index}>{gift}</li>
+                        ))}
+                      </ul>
+                    </React.Fragment>
+                  );
+                })}
+              </SixColumn>
+              <TwoColumn>
+                <PositionForm onSubmit={values => createPosition(values)} />
+              </TwoColumn>
+            </TwoColumnPageLayout>
           );
         }}
       </FirestoreCollection>
