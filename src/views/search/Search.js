@@ -9,10 +9,10 @@ import {
 } from 'react-instantsearch-dom'
 
 import SearchResult from './SearchResult'
-import '../../components/search'
+import '../../ui-elements/search'
 import {
   Page,
-} from '../../components/layout'
+} from '../../ui-elements/layout'
 
 const Search = () => (
   <Page>

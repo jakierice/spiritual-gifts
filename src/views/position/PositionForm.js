@@ -8,7 +8,7 @@
 import React from 'react';
 
 import { FormRow, FormLabel, TextInput } from '../../components';
-import PositionSelect from './PositionSelect';
+import { GiftSelect } from '../common';
 
 class PostForm extends React.Component {
   onSubmit = event => {
@@ -34,13 +34,13 @@ class PostForm extends React.Component {
           />
         </FormRow>
         <FormRow>
-          <PositionSelect name="firstGift" />
+          <GiftSelect name="firstGift" />
         </FormRow>
         <FormRow>
-          <PositionSelect name="secondGift" />
+          <GiftSelect name="secondGift" />
         </FormRow>
         <FormRow>
-          <PositionSelect name="thirdGift" />
+          <GiftSelect name="thirdGift" />
         </FormRow>
         <button type="submit">Save post</button>
       </form>

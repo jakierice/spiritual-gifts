@@ -6,8 +6,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import ErrorBoundary from './misc/ErrorBoundary'
 import Routes from './Routes'
-import Layout from './layout/Layout'
-import '../components/global'
+import Layout from './common/Layout'
+import '../ui-elements/global'
 
 const App = () => (
   <FirestoreProvider firebase={Firebase}>

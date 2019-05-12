@@ -6,10 +6,10 @@ import FirebaseAuth from '../misc/FirebaseAuth'
 import LikeButton from './LikeButton'
 import {
   InternalLink,
-} from '../../components/links'
+} from '../../ui-elements/links'
 import {
   Page,
-} from '../../components/layout'
+} from '../../ui-elements/layout'
 
 const Post = ({match}) => (
   <Page>

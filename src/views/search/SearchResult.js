@@ -2,7 +2,7 @@ import React from 'react'
 
 import {
   InternalLink,
-} from '../../components/links'
+} from '../../ui-elements/links'
 
 const SearchResult = ({hit}) => (
   <InternalLink to={`/${hit.slug}`}>

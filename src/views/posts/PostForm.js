@@ -12,7 +12,7 @@ import {
   FormLabel,
   TextInput,
   TextArea,
-} from '../../components/forms'
+} from '../../ui-elements/forms'
 
 class PostForm extends React.Component {
 

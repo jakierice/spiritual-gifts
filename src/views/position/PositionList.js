@@ -2,8 +2,8 @@ import React from 'react';
 import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
-import { InternalLink } from '../../components/links';
-import { Page } from '../../components/layout';
+import { InternalLink } from '../../ui-elements/links';
+import { Page } from '../../ui-elements/layout';
 
 function PositionList() {
   return (

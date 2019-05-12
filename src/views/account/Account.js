@@ -7,7 +7,7 @@ import Profile from './Profile'
 import Subscription from './Subscription'
 import {
   Page,
-} from '../../components/layout'
+} from '../../ui-elements/layout'
 
 const Account = () => (
   <Page>

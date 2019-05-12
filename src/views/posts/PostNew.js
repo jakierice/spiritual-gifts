@@ -5,7 +5,7 @@ import Error from '../misc/Error';
 import logIn from '../../actions/logIn';
 import createPost from '../../actions/createPost';
 import PostForm from './PostForm';
-import { Page } from '../../components/layout';
+import { Page } from '../../ui-elements/layout';
 
 const PostNew = ({ history }) => (
   <Page>
