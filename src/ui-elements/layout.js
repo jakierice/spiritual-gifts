@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { rem } from 'polished';
 import colors from './colors';
+import mediaQueries from './mediaQueries';
 
 export const HeaderFooterWrapper = styled.div`
   max-width: 64rem;
@@ -27,14 +28,30 @@ export const Footer = styled.div`
   opacity: 0.3;
 `;
 
-export const TwoColumn = styled.div`
+export const RightSidebar = styled.div`
   grid-column: span 2;
+
+  @media (max-width: ${mediaQueries.md}) {
+    grid-column: span 8;
+  }
 `;
 
-export const SixColumn = styled.div`
+export const MainContent = styled.div`
   grid-column: span 6;
 `;
 
-export const EightColumn = styled.div`
+export const MainContentFullWidth = styled.div`
   grid-column: span 8;
+
+  @media (max-width: ${mediaQueries.md}) {
+    grid-column: span 8;
+  }
+`;
+
+export const ShowOnMobile = styled.div`
+  display: none;
+
+  @media (max-width: ${mediaQueries.md}) {
+    display: block;
+  }
 `;

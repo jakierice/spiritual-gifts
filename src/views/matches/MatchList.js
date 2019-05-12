@@ -3,7 +3,7 @@ import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
 import { InternalLink } from '../../ui-elements/links';
-import { EightColumn, Page } from '../../ui-elements';
+import { MainContentFullWidth, Page } from '../../ui-elements';
 
 function MatchList() {
   return (
@@ -40,7 +40,7 @@ function MatchList() {
 
                 return matches.map(match => {
                   return (
-                    <EightColumn>
+                    <MainContentFullWidth>
                       <h2>{match.title}</h2>
                       <ul>
                         {match.matchingCandidates.length === 0 ? (
@@ -55,7 +55,7 @@ function MatchList() {
                           })
                         )}
                       </ul>
-                    </EightColumn>
+                    </MainContentFullWidth>
                   );
                 });
               }}
@@ -63,8 +63,6 @@ function MatchList() {
           );
         }}
       </FirestoreCollection>
-
-      <hr />
     </Page>
   );
 }

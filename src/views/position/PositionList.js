@@ -3,15 +3,19 @@ import styled from 'styled-components';
 import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
-import { ButtonLink, TwoColumn, SixColumn } from '../../ui-elements';
-import { Page } from '../../ui-elements/layout';
+import {
+  ButtonLink,
+  RightSidebar,
+  MainContent,
+  ShowOnMobile,
+  Page,
+} from '../../ui-elements';
 import { createPosition } from '../../actions/';
 import PositionForm from './PositionForm';
 
 function PositionList() {
   return (
     <Page>
-      {/* <ButtonLink to="/position/new">New position</ButtonLink> */}
       <FirestoreCollection path={'positions'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
           if (error) {
@@ -28,7 +32,10 @@ function PositionList() {
 
           return (
             <React.Fragment>
-              <SixColumn>
+              <MainContent>
+                <ShowOnMobile>
+                  <ButtonLink to="/position/new">New position</ButtonLink>
+                </ShowOnMobile>
                 {data.map(position => {
                   return (
                     <React.Fragment>
@@ -41,11 +48,11 @@ function PositionList() {
                     </React.Fragment>
                   );
                 })}
-              </SixColumn>
-              <TwoColumn>
+              </MainContent>
+              <RightSidebar>
                 <h3>Create a new position</h3>
                 <PositionForm onSubmit={values => createPosition(values)} />
-              </TwoColumn>
+              </RightSidebar>
             </React.Fragment>
           );
         }}

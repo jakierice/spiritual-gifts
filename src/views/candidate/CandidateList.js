@@ -6,16 +6,16 @@ import Error from '../misc/Error';
 import {
   ButtonLink,
   PageLayout,
-  TwoColumn,
-  SixColumn,
+  RightSidebar,
+  MainContent,
+  Page,
+  ShowOnMobile,
 } from '../../ui-elements';
-import { Page } from '../../ui-elements/layout';
 import CandidateForm from './CandidateForm';
 
 function PositionList() {
   return (
     <Page>
-      {/* <ButtonLink to="/candidate/new">New candidate</ButtonLink> */}
       <FirestoreCollection path={'candidates'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
           if (error) {
@@ -32,18 +32,24 @@ function PositionList() {
 
           return (
             <React.Fragment>
-              <SixColumn>
-                {data.map(position => {
-                  return (
-                    <li key={position.key}>
-                      {position.firstName} {position.lastName}
-                    </li>
-                  );
-                })}
-              </SixColumn>
-              <TwoColumn>
+              <MainContent>
+                <ShowOnMobile>
+                  <ButtonLink to="/candidate/new">New candidate</ButtonLink>
+                </ShowOnMobile>
+                <h2>Current candidates</h2>
+                <ul>
+                  {data.map(position => {
+                    return (
+                      <li key={position.key}>
+                        {position.firstName} {position.lastName}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </MainContent>
+              <RightSidebar>
                 <CandidateForm onSubmit={values => createCandidate(values)} />
-              </TwoColumn>
+              </RightSidebar>
             </React.Fragment>
           );
         }}
