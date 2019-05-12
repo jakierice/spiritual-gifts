@@ -16,7 +16,7 @@ const InternalLink = styled(Link)`
 const HeaderLink = styled(Link)`
   color: ${colors.black};
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 1.6rem;
 `;
 
 export { InternalLink, HeaderLink };
