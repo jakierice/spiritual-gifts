@@ -1,15 +1,21 @@
 import React from 'react';
 import { FirestoreCollection } from 'react-firestore';
 
+import { createCandidate } from '../../actions';
 import Error from '../misc/Error';
-import { ButtonLink } from '../../ui-elements/links';
+import {
+  ButtonLink,
+  PageLayout,
+  TwoColumn,
+  SixColumn,
+} from '../../ui-elements';
 import { Page } from '../../ui-elements/layout';
+import CandidateForm from './CandidateForm';
 
 function PositionList() {
   return (
     <Page>
-      <ButtonLink to="/candidate/new">New candidate</ButtonLink>
-      <hr />
+      {/* <ButtonLink to="/candidate/new">New candidate</ButtonLink> */}
       <FirestoreCollection path={'candidates'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
           if (error) {
@@ -25,20 +31,23 @@ function PositionList() {
           }
 
           return (
-            <div>
-              {data.map(position => {
-                return (
-                  <li key={position.key}>
-                    {position.firstName} {position.lastName}
-                  </li>
-                );
-              })}
-            </div>
+            <React.Fragment>
+              <SixColumn>
+                {data.map(position => {
+                  return (
+                    <li key={position.key}>
+                      {position.firstName} {position.lastName}
+                    </li>
+                  );
+                })}
+              </SixColumn>
+              <TwoColumn>
+                <CandidateForm onSubmit={values => createCandidate(values)} />
+              </TwoColumn>
+            </React.Fragment>
           );
         }}
       </FirestoreCollection>
-
-      <hr />
     </Page>
   );
 }

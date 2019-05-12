@@ -3,31 +3,15 @@ import styled from 'styled-components';
 import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
-import { ButtonLink } from '../../ui-elements/links';
+import { ButtonLink, TwoColumn, SixColumn } from '../../ui-elements';
 import { Page } from '../../ui-elements/layout';
 import { createPosition } from '../../actions/';
 import PositionForm from './PositionForm';
-
-const TwoColumnPageLayout = styled.div`
-  display: grid;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-rows: auto;
-`;
-
-const TwoColumn = styled.div`
-  grid-column: span 2;
-
-`;
-
-const SixColumn = styled.div`
-  grid-column: span 6;
-`;
 
 function PositionList() {
   return (
     <Page>
       {/* <ButtonLink to="/position/new">New position</ButtonLink> */}
-      <hr />
       <FirestoreCollection path={'positions'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
           if (error) {
@@ -43,7 +27,7 @@ function PositionList() {
           }
 
           return (
-            <TwoColumnPageLayout>
+            <React.Fragment>
               <SixColumn>
                 {data.map(position => {
                   return (
@@ -59,14 +43,13 @@ function PositionList() {
                 })}
               </SixColumn>
               <TwoColumn>
+                <h3>Create a new position</h3>
                 <PositionForm onSubmit={values => createPosition(values)} />
               </TwoColumn>
-            </TwoColumnPageLayout>
+            </React.Fragment>
           );
         }}
       </FirestoreCollection>
-
-      <hr />
     </Page>
   );
 }

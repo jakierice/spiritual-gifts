@@ -3,12 +3,11 @@ import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
 import { InternalLink } from '../../ui-elements/links';
-import { Page } from '../../ui-elements/layout';
+import { EightColumn, Page } from '../../ui-elements';
 
 function MatchList() {
   return (
     <Page>
-      <hr />
       <FirestoreCollection path={'positions'}>
         {({ data: positions }) => {
           return (
@@ -41,7 +40,7 @@ function MatchList() {
 
                 return matches.map(match => {
                   return (
-                    <React.Fragment>
+                    <EightColumn>
                       <h2>{match.title}</h2>
                       <ul>
                         {match.matchingCandidates.length === 0 ? (
@@ -56,7 +55,7 @@ function MatchList() {
                           })
                         )}
                       </ul>
-                    </React.Fragment>
+                    </EightColumn>
                   );
                 });
               }}

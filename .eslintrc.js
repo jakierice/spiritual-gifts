@@ -13,7 +13,7 @@ module.exports = {
   },
   plugins: ['react'],
   rules: {
-    'react/jsx-uses-vars': 0,
+    'react/jsx-uses-vars': 1,
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],

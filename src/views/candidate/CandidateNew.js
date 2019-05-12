@@ -6,7 +6,7 @@ import { createCandidate, logIn } from '../../actions/';
 import CandidateForm from './CandidateForm';
 import { Button, Page } from '../../ui-elements';
 
-const PostNew = ({ history }) => (
+const CandidateNew = ({ history }) => (
   <Page>
     <FirebaseAuth>
       {({ isLoading, error, auth }) => {
@@ -39,4 +39,4 @@ const PostNew = ({ history }) => (
   </Page>
 );
 
-export default PostNew;
+export default CandidateNew;
