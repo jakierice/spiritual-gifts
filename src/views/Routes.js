@@ -11,12 +11,16 @@ import { Switch, Route } from 'react-router-dom';
 // import PostEdit from './posts/PostEdit'
 // import Post from './posts/Post'
 import { PositionList, PositionNew } from './position';
+import { CandidateList, CandidateNew } from './candidate';
 import Error from './misc/Error';
 
 const Routes = () => (
   <Switch>
     <Route exact path="/" component={PositionList} />
-    <Route exact path="/new" component={PositionNew} />
+    <Route exact path="/position" component={PositionList} />
+    <Route exact path="/position/new" component={PositionNew} />
+    <Route exact path="/candidate" component={CandidateList} />
+    <Route exact path="/candidate/new" component={CandidateNew} />
     {/* <Route exact path="/" component={PostList} />
     <Route path="/new" component={PostNew} />
     <Route path="/search" component={Search} />

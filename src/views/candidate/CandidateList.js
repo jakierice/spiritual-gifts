@@ -8,9 +8,9 @@ import { Page } from '../../ui-elements/layout';
 function PositionList() {
   return (
     <Page>
-      <InternalLink to="/position/new">New position</InternalLink>
+      <InternalLink to="/candidate/new">New candidate</InternalLink>
       <hr />
-      <FirestoreCollection path={'positions'} sort="createdOn:desc">
+      <FirestoreCollection path={'candidates'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
           if (error) {
             return <Error error={error} />;
@@ -21,14 +21,17 @@ function PositionList() {
           }
 
           if (data.length === 0) {
-            return <p>No positions yet!</p>;
+            return <p>No candidates yet!</p>;
           }
 
           return (
             <div>
               {data.map(position => {
-                console.log(position);
-                return <li key={position.key}>{position.title}</li>;
+                return (
+                  <li key={position.key}>
+                    {position.firstName} {position.lastName}
+                  </li>
+                );
               })}
             </div>
           );
