@@ -36,10 +36,11 @@ function PositionList() {
                 <ShowOnMobile>
                   <ButtonLink to="/position/new">New position</ButtonLink>
                 </ShowOnMobile>
+                <h2>Current positions</h2>
                 {data.map(position => {
                   return (
                     <React.Fragment>
-                      <h2>{position.title}</h2>
+                      <h3>{position.title}</h3>
                       <ul>
                         {position.gifts.map((gift, index) => (
                           <li key={gift + index}>{gift}</li>
@@ -50,7 +51,7 @@ function PositionList() {
                 })}
               </MainContent>
               <RightSidebar>
-                <h3>Create a new position</h3>
+                <h2>Create new position</h2>
                 <PositionForm onSubmit={values => createPosition(values)} />
               </RightSidebar>
             </React.Fragment>

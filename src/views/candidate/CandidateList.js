@@ -48,6 +48,7 @@ function PositionList() {
                 </ul>
               </MainContent>
               <RightSidebar>
+                <h2>Add candidate</h2>
                 <CandidateForm onSubmit={values => createCandidate(values)} />
               </RightSidebar>
             </React.Fragment>

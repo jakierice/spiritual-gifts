@@ -10,7 +10,7 @@ export const HeaderFooterWrapper = styled.div`
   grid-template-rows: max-content auto max-content;
 `;
 
-export const Header = styled.div`
+export const Header = styled.header`
   padding: 2rem 1rem 1rem;
   border-bottom: ${rem(1)} solid ${colors.lightGray};
 `;
@@ -22,13 +22,13 @@ export const Page = styled.div`
   grid-template-rows: auto;
 `;
 
-export const Footer = styled.div`
+export const Footer = styled.footer`
   padding: 1rem;
   text-align: center;
   opacity: 0.3;
 `;
 
-export const RightSidebar = styled.div`
+export const RightSidebar = styled.section`
   grid-column: span 2;
 
   @media (max-width: ${mediaQueries.md}) {
@@ -36,11 +36,11 @@ export const RightSidebar = styled.div`
   }
 `;
 
-export const MainContent = styled.div`
+export const MainContent = styled.main`
   grid-column: span 6;
 `;
 
-export const MainContentFullWidth = styled.div`
+export const MainContentFullWidth = styled.main`
   grid-column: span 8;
 
   @media (max-width: ${mediaQueries.md}) {
