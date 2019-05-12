@@ -44,34 +44,6 @@ function PositionList() {
       </FirestoreCollection>
 
       <hr />
-
-      {/* For paid subscribers only */}
-      {/* <SpiritualGiftsSubscription>
-        {({ isLoading, error, subscription }) => {
-          if (error) {
-            return <Error error={error} />;
-          }
-
-          if (isLoading) {
-            return <p>loading...</p>;
-          }
-
-          // if (!subscription) {
-          //   return (
-          //     <div>
-          //       <p>Only paid subscribers can see what goes here</p>
-          //       <InternalLink to={`/account`}>Subscribe now</InternalLink>
-          //     </div>
-          //   );
-          // }
-
-          return (
-            <div>
-              <p>Super-fancy subscription-only features go here!</p>
-            </div>
-          );
-        }}
-      </SpiritualGiftsSubscription> */}
     </Page>
   );
 }

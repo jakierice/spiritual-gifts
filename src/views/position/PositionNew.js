@@ -30,7 +30,7 @@ const PostNew = ({ history }) => (
         return (
           <PositionForm
             onSubmit={values =>
-              createPosition(values).then(post => history.push(`/`))
+              createPosition(values).then(post => history.push('/'))
             }
           />
         );
