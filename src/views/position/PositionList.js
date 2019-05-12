@@ -27,8 +27,16 @@ function PositionList() {
           return (
             <div>
               {data.map(position => {
-                console.log(position);
-                return <li key={position.key}>{position.title}</li>;
+                return (
+                  <React.Fragment key={position.key}>
+                    <h2>{position.title}</h2>
+                    <ul>
+                      {position.gifts.map(gift => (
+                        <li key={gift}>{gift}</li>
+                      ))}
+                    </ul>
+                  </React.Fragment>
+                );
               })}
             </div>
           );
