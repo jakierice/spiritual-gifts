@@ -45,13 +45,17 @@ function MatchList() {
                     <React.Fragment>
                       <h2>{match.title}</h2>
                       <ul>
-                        {match.matchingCandidates.map(candidate => {
-                          return (
-                            <li key={candidate.key}>
-                              {candidate.firstName} {candidate.lastName}
-                            </li>
-                          );
-                        })}
+                        {match.matchingCandidates.length === 0 ? (
+                          <li>No matching candidates at this time.</li>
+                        ) : (
+                          match.matchingCandidates.map(candidate => {
+                            return (
+                              <li key={candidate.key}>
+                                {candidate.firstName} {candidate.lastName}
+                              </li>
+                            );
+                          })
+                        )}
                       </ul>
                     </React.Fragment>
                   );

@@ -19,9 +19,9 @@
   "scripts": {
     "": "How these scripts work: https://medium.com/@tacomanator/environments-with-create-react-app-7b645312c09d",
     "start": "sh -ac '. ./.env.dev;   firebase use dev   && react-scripts start'",
-    "dev": "  sh -ac '. ./.env.dev;   firebase use dev   && react-scripts build && firebase deploy'",
-    "stage": "sh -ac '. ./.env.stage; firebase use stage && react-scripts build && firebase deploy'",
-    "live": " sh -ac '. ./.env.live;  firebase use live  && react-scripts build && firebase deploy'"
+    "deploy:dev": "  sh -ac '. ./.env.dev;   firebase use dev   && react-scripts build && firebase deploy'",
+    "deploy:stage": "sh -ac '. ./.env.stage; firebase use stage && react-scripts build && firebase deploy'",
+    "deploy:live": " sh -ac '. ./.env.live;  firebase use live  && react-scripts build && firebase deploy'"
   },
   "browserslist": {
     "production": [

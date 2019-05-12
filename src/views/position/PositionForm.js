@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-import { FormRow, FormLabel, TextInput } from '../../components';
+import { FormRow, FormLabel, TextInput } from '../../ui-elements';
 import { GiftSelect } from '../common';
 
 class PositionForm extends React.Component {
