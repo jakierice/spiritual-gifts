@@ -8,7 +8,6 @@ import { Page } from '../../ui-elements/layout';
 function MatchList() {
   return (
     <Page>
-      <InternalLink to="/candidate/new">New candidate</InternalLink>
       <hr />
       <FirestoreCollection path={'positions'}>
         {({ data: positions }) => {

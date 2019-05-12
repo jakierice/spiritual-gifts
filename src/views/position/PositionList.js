@@ -2,13 +2,13 @@ import React from 'react';
 import { FirestoreCollection } from 'react-firestore';
 
 import Error from '../misc/Error';
-import { InternalLink } from '../../ui-elements/links';
+import { ButtonLink } from '../../ui-elements/links';
 import { Page } from '../../ui-elements/layout';
 
 function PositionList() {
   return (
     <Page>
-      <InternalLink to="/position/new">New position</InternalLink>
+      <ButtonLink to="/position/new">New position</ButtonLink>
       <hr />
       <FirestoreCollection path={'positions'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {

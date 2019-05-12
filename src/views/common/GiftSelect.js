@@ -1,8 +1,9 @@
 import React from 'react';
+import { Select } from '../../ui-elements';
 
 function PositionSelect({ name }) {
   return (
-    <select name={name}>
+    <Select name={name}>
       <option value="administration">Administration</option>
       <option value="apostleship">Apostleship</option>
       <option value="discernment">Discernment</option>
@@ -22,7 +23,7 @@ function PositionSelect({ name }) {
       <option value="teaching">Teaching</option>
       <option value="tongues">Tongues</option>
       <option value="wisdom">Wisdom</option>
-    </select>
+    </Select>
   );
 }
 

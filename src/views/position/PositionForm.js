@@ -34,12 +34,15 @@ class PositionForm extends React.Component {
           />
         </FormRow>
         <FormRow>
+          <FormLabel for="title">First gift</FormLabel>
           <GiftSelect name="firstGift" />
         </FormRow>
         <FormRow>
+          <FormLabel for="title">Second gift</FormLabel>
           <GiftSelect name="secondGift" />
         </FormRow>
         <FormRow>
+          <FormLabel for="title">Third gift</FormLabel>
           <GiftSelect name="thirdGift" />
         </FormRow>
         <Button type="submit">Save position</Button>
