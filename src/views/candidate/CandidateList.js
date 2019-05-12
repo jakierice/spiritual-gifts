@@ -8,9 +8,9 @@ import { Page } from '../../ui-elements/layout';
 function PositionList() {
   return (
     <Page>
-      <InternalLink to="/position/new">New position</InternalLink>
+      <InternalLink to="/candidate/new">New candidate</InternalLink>
       <hr />
-      <FirestoreCollection path={'positions'} sort="createdOn:desc">
+      <FirestoreCollection path={'candidates'} sort="createdOn:desc">
         {({ error, isLoading, data }) => {
           if (error) {
             return <Error error={error} />;
@@ -21,21 +21,16 @@ function PositionList() {
           }
 
           if (data.length === 0) {
-            return <p>No positions yet!</p>;
+            return <p>No candidates yet!</p>;
           }
 
           return (
             <div>
               {data.map(position => {
                 return (
-                  <React.Fragment key={position.key}>
-                    <h2>{position.title}</h2>
-                    <ul>
-                      {position.gifts.map(gift => (
-                        <li key={gift}>{gift}</li>
-                      ))}
-                    </ul>
-                  </React.Fragment>
+                  <li key={position.key}>
+                    {position.firstName} {position.lastName}
+                  </li>
                 );
               })}
             </div>

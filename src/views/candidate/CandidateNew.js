@@ -2,9 +2,8 @@ import React from 'react';
 
 import FirebaseAuth from '../misc/FirebaseAuth';
 import Error from '../misc/Error';
-import logIn from '../../actions/logIn';
-import createPost from '../../actions/createPost';
-import PostForm from './PostForm';
+import { createCandidate, logIn } from '../../actions/';
+import CandidateForm from './CandidateForm';
 import { Page } from '../../ui-elements/layout';
 
 const PostNew = ({ history }) => (
@@ -29,9 +28,9 @@ const PostNew = ({ history }) => (
         }
 
         return (
-          <PostForm
+          <CandidateForm
             onSubmit={values =>
-              createPost(values).then(post => history.push(`/${post.slug}`))
+              createCandidate(values).then(() => history.push('/candidate'))
             }
           />
         );

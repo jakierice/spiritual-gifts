@@ -7,7 +7,7 @@ import updatePost from '../../actions/updatePost'
 import PostForm from './PostForm'
 import {
   Page,
-} from '../../components/layout'
+} from '../../ui-elements/layout'
 
 const PostEdit = ({match, history}) => (
   <Page>

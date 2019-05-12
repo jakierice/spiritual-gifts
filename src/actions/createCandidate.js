@@ -4,26 +4,26 @@ import slugify from 'slugify';
 
 import { prepareDocForCreate } from './helpers/firestoreHelpers';
 
-function createPosition(values) {
+function createCandidate(values) {
   ReactGA.event({
-    category: 'Position',
-    action: 'Create position',
+    category: 'Candidate',
+    action: 'Create candidate',
   });
 
   const valuePayload = {
     ...values,
-    slug: slugify(values.title, { lower: true }),
+    slug: slugify(`${values.firstName} ${values.lastName}`, { lower: true }),
   };
 
   return Firebase.firestore()
-    .collection('positions')
+    .collection('candidates')
     .add(prepareDocForCreate(valuePayload))
     .then(() => {
       return values;
     })
     .catch(error => {
-      alert(`Whoops, couldn't create the position: ${error.message}`);
+      alert(`Whoops, couldn't create the candidate: ${error.message}`);
     });
 }
 
-export default createPosition;
+export default createCandidate;

@@ -5,10 +5,10 @@ import Error from '../misc/Error'
 import SpiritualGiftsSubscription from '../misc/SpiritualGiftsSubscription'
 import {
   InternalLink,
-} from '../../components/links'
+} from '../../ui-elements/links'
 import {
   Page,
-} from '../../components/layout'
+} from '../../ui-elements/layout'
 
 const PostList = () => (
   <Page>
