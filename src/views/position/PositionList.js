@@ -16,6 +16,7 @@ const TwoColumnPageLayout = styled.div`
 
 const TwoColumn = styled.div`
   grid-column: span 2;
+
 `;
 
 const SixColumn = styled.div`
