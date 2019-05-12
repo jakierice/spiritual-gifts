@@ -7,7 +7,7 @@
 
 import React from 'react';
 
-import { FormRow, FormLabel, TextInput } from '../../ui-elements';
+import { Button, FormRow, FormLabel, TextInput } from '../../ui-elements';
 import { GiftSelect } from '../common';
 
 class PositionForm extends React.Component {
@@ -42,7 +42,7 @@ class PositionForm extends React.Component {
         <FormRow>
           <GiftSelect name="thirdGift" />
         </FormRow>
-        <button type="submit">Save position</button>
+        <Button type="submit">Save position</Button>
       </form>
     );
   }

@@ -4,7 +4,7 @@ import FirebaseAuth from '../misc/FirebaseAuth';
 import Error from '../misc/Error';
 import { createPosition, logIn } from '../../actions/';
 import PositionForm from './PositionForm';
-import { Page } from '../../ui-elements/layout';
+import { Button, Page } from '../../ui-elements';
 
 const PostNew = ({ history }) => (
   <Page>
@@ -22,7 +22,7 @@ const PostNew = ({ history }) => (
           return (
             <div>
               <p>You must be logged in to add posts</p>
-              <button onClick={logIn}>log in</button>
+              <Button onClick={logIn}>log in</Button>
             </div>
           );
         }
@@ -30,7 +30,7 @@ const PostNew = ({ history }) => (
         return (
           <PositionForm
             onSubmit={values =>
-              createPosition(values).then(post => history.push('/'))
+              createPosition(values).then(() => history.push('/'))
             }
           />
         );
