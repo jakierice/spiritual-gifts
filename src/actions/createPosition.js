@@ -6,20 +6,22 @@ import { prepareDocForCreate } from './helpers/firestoreHelpers';
 
 function createPosition(values) {
   ReactGA.event({
-    category: 'Post',
-    action: 'Create post',
+    category: 'Position',
+    action: 'Create position',
   });
 
-  values.slug = slugify(values.title, { lower: true });
+  const valuePayload = {
+    slug: slugify(values.title, { lower: true }),
+  };
 
   return Firebase.firestore()
     .collection('positions')
-    .add(prepareDocForCreate(values))
+    .add(prepareDocForCreate(valuePayload))
     .then(() => {
       return values;
     })
     .catch(error => {
-      alert(`Whoops, couldn't create the post: ${error.message}`);
+      alert(`Whoops, couldn't create the position: ${error.message}`);
     });
 }
 

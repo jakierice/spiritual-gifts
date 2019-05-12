@@ -10,12 +10,12 @@ import React from 'react';
 import { FormRow, FormLabel, TextInput } from '../../components';
 import { GiftSelect } from '../common';
 
-class PostForm extends React.Component {
+class PositionForm extends React.Component {
   onSubmit = event => {
     event.preventDefault();
     const { title, firstGift, secondGift, thirdGift } = event.target.elements;
     const values = {
-      title: event.target.elements.title.value,
+      title: title.value,
       gifts: [firstGift.value, secondGift.value, thirdGift.value],
     };
     this.props.onSubmit(values);
@@ -48,4 +48,4 @@ class PostForm extends React.Component {
   }
 }
 
-export default PostForm;
+export default PositionForm;
