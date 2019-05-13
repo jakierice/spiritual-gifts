@@ -17,7 +17,7 @@ import {
 const Layout = ({ children }) => (
   <HeaderFooterWrapper>
     <Header>
-      <HeaderLink to="/">SpiritualGifts</HeaderLink>
+      <HeaderLink to="/">Spiritual Gifts</HeaderLink>
       <InternalLink to="/position">Positions</InternalLink>
       <InternalLink to="/candidate">Candidates</InternalLink>
 
