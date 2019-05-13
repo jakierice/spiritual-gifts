@@ -1,0 +1,54 @@
+{
+  "secrets": [
+    {
+      "kmsKeyName": "projects/spiritual-gifts-dev/locations/global/keyRings/spiritual-gifts-dev-keyring/cryptoKeys/REACT_APP_FIREBASE_API_KEY",
+      "secretEnv": {
+        "REACT_APP_FIREBASE_API_KEY": "CiQAAQq1XA+PBL+aZomPtpfbxYfz/ugwh8fxw95d8itNf80+nCASUADBdQI14itp40b1yciLmXd5lN862psn6W0dUNgwo3sp+bY5SQxn37lw6weSJ/IkeeHTbmDodQOXJ62yyLbyfaeL3N/RCuukfH3xwHB1oXDl"
+      }
+    },
+    {
+      "kmsKeyName": "projects/spiritual-gifts-dev/locations/global/keyRings/spiritual-gifts-dev-keyring/cryptoKeys/REACT_APP_FIREBASE_AUTH_DOMAIN",
+      "secretEnv": {
+        "REACT_APP_FIREBASE_AUTH_DOMAIN": "CiQA7yoiAaIT3HG1ACOR2f67BJ2s7eMC9sj169mblle/ZjAEfYYSTADdyhbj9KzyycjBiZp00+Gb6xZD9VYQjT7IPNUKhYb6skfcAAbNWaEIeuTtV3vQ5bzFycBV6YPfVzWYn3w6abFnM1RDFF5UIibs0t8="
+      }
+    },
+    {
+      "kmsKeyName": "projects/spiritual-gifts-dev/locations/global/keyRings/spiritual-gifts-dev-keyring/cryptoKeys/REACT_APP_FIREBASE_PROJECT_ID",
+      "secretEnv": {
+        "REACT_APP_FIREBASE_PROJECT_ID": "CiQA+9VWqnQT8RkrJGsLXwjuNSl8ynJjdkEK/qFf4IEBtb6/TnUSPACWLp65KZO/IbbUFTbF0KxDfjlUR4UqlYRnmejZTL2giKuPcvdDJeXQDVUCIttcIndiRMxq26mNNd/zqw=="
+      }
+    }
+  ],
+  "steps": [
+    {
+      "name": "gcr.io/cloud-builders/npm",
+      "args": ["install"]
+    },
+
+    {
+      "name": "gcr.io/cloud-builders/npm",
+      "args": ["test"]
+    },
+    {
+      "name": "gcr.io/cloud-builders/npm",
+      "args": ["run", "build"],
+      "secretEnv": [
+        "REACT_APP_FIREBASE_API_KEY",
+        "REACT_APP_FIREBASE_AUTH_DOMAIN",
+        "REACT_APP_FIREBASE_PROJECT_ID"
+      ]
+    },
+    {
+      "name": "gcr.io/$PROJECT_ID/firebase",
+      "args": [
+        "deploy",
+        "-P",
+        "$PROJECT_ID",
+        "--only",
+        "hosting",
+        "--token",
+        "$_FIREBASE_DEPLOY_TOKEN"
+      ]
+    }
+  ]
+}
