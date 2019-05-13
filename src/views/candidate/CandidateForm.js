@@ -26,6 +26,7 @@ class CandidateForm extends React.Component {
       gifts: [firstGift.value, secondGift.value, thirdGift.value],
     };
     this.props.onSubmit(values);
+    event.target.reset();
   };
 
   render() {
